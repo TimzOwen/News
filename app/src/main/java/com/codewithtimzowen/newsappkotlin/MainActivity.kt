@@ -16,11 +16,11 @@ class MainActivity : AppCompatActivity() {
     lateinit var imageID : Array<Int>
     lateinit var heading : Array<String>
     lateinit var news : Array<String>
+    lateinit var soundNews : Array<Int>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
 
         imageID = arrayOf(
             R.drawable.new1,
@@ -31,6 +31,14 @@ class MainActivity : AppCompatActivity() {
             R.drawable.new6
         )
 
+        soundNews = arrayOf(
+            R.raw.podcast2,
+            R.raw.podcast3,
+            R.raw.podcast4,
+            R.raw.podcast5,
+            R.raw.podcast7,
+            R.raw.podcast8
+        )
         heading = arrayOf(
             "Uhuru Kenya to end Curview hours ",
             "Kabarak University graduatoion on september",
@@ -76,6 +84,7 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("heading",newsArrayList[position].heading)
                 intent.putExtra("imageid",newsArrayList[position].titleImage)
                 intent.putExtra("news",news[position])
+                intent.putExtra("sound",soundNews[position])
                 startActivity(intent)
 
             }
