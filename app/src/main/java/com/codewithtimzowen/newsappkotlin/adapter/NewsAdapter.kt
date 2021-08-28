@@ -11,12 +11,20 @@ import com.codewithtimzowen.newsappkotlin.data.News
 
 class NewsAdapter(private val newArrayList : ArrayList<News>) : RecyclerView.Adapter<NewsAdapter.NewsViewHolder> (){
 
+    private lateinit var mListener : OnItemClickListener
 
+    interface OnItemClickListener{
+        fun onClick(position: Int)
+    }
+
+    fun setOnClickListener(listener: OnItemClickListener){
+        mListener = listener
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
         val itemView = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_list,parent,false)
-        return NewsViewHolder(itemView)
+        return NewsViewHolder(itemView, mListener)
     }
 
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
@@ -31,10 +39,16 @@ class NewsAdapter(private val newArrayList : ArrayList<News>) : RecyclerView.Ada
     }
 
 
-    class NewsViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
+    inner class NewsViewHolder(itemView : View, listener: OnItemClickListener) : RecyclerView.ViewHolder(itemView) {
 
         val titleImage : ImageView = itemView.findViewById(R.id.title_image)
         val tvHeading : TextView = itemView.findViewById(R.id.tv_heading)
+
+        init {
+            itemView.setOnClickListener{
+                listener.onClick(adapterPosition)
+            }
+        }
 
     }
 

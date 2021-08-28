@@ -2,8 +2,7 @@ package com.codewithtimzowen.newsappkotlin
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.codewithtimzowen.newsappkotlin.adapter.NewsAdapter
@@ -15,6 +14,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var newsArrayList : ArrayList<News>
     lateinit var imageID : Array<Int>
     lateinit var heading : Array<String>
+    lateinit var news : Array<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,14 +47,30 @@ class MainActivity : AppCompatActivity() {
 
         getData()
 
+        news = arrayOf(
+            getString(R.string.news11),
+            getString(R.string.news12),
+            getString(R.string.news13),
+            getString(R.string.news14),
+            getString(R.string.news15),
+            getString(R.string.news16),
+            getString(R.string.news17),
+        )
     }
-
     private fun getData() {
 
         for (i in imageID.indices){
             val news = News(imageID[i],heading[i])
             newsArrayList.add(news)
         }
-        newsRecyclerView.adapter = NewsAdapter(newsArrayList)
+
+        val adapter =  NewsAdapter(newsArrayList)
+        newsRecyclerView.adapter =adapter
+        adapter.setOnClickListener(object : NewsAdapter.OnItemClickListener{
+            override fun onClick(position: Int) {
+
+
+            }
+        })
     }
 }

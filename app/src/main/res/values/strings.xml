@@ -1,4 +1,28 @@
 <resources>
     <string name="app_name">NewsAppKotlin</string>
     <string name="mr_uhuru_kenya_decided_to_chase_away_dp_william_ruto_out_of_office">Mr Uhuru Kenya decided to chase away DP William Ruto out of office</string>
+
+
+    <string name="news11">
+        welocme to kabaraka university of your choice
+    </string>
+    <string name="news12">
+        BBI lost in the street before lunch hour
+    </string>
+    <string name="news13">
+        The upcoming more election in Uganda
+    </string>
+    <string name="news14">
+        Kenya becomes the third
+    </string>
+    <string name="news15">
+        Today is the day we have made
+    </string>
+    <string name="news16">
+        Make the best out of technology
+    </string>
+    <string name="news17">
+        Right away from our news desk
+    </string>
+
 </resources>
