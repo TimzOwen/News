@@ -1,5 +1,6 @@
 package com.codewithtimzowen.newsappkotlin
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -69,6 +70,13 @@ class MainActivity : AppCompatActivity() {
         adapter.setOnClickListener(object : NewsAdapter.OnItemClickListener{
             override fun onClick(position: Int) {
 
+                // attach data to be sent to the next activity
+
+                val intent = Intent(this@MainActivity, NewsActivity::class.java)
+                intent.putExtra("heading",newsArrayList[position].heading)
+                intent.putExtra("imageid",newsArrayList[position].titleImage)
+                intent.putExtra("news",news[position])
+                startActivity(intent)
 
             }
         })
